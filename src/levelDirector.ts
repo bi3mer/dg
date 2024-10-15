@@ -20,8 +20,14 @@ export class LevelDirector {
   private type: string;
 
   constructor() {
-    // randomly assign the level director type
-    this.type = choice([LD_RANDOM, LD_DIFFICULTY, LD_ENJOYMENT, LD_BOTH]);
+    // assign the director
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('default')) {
+      this.type = LD_BOTH;
+    } else {
+      this.type = choice([LD_RANDOM, LD_DIFFICULTY, LD_ENJOYMENT, LD_BOTH]);
+    }
+
     console.log(`Director: ${this.type}`);
     Global.director = this.type;
 
