@@ -22,6 +22,7 @@ export class LevelDirector {
   constructor() {
     // randomly assign the level director type
     this.type = choice([LD_RANDOM, LD_DIFFICULTY, LD_ENJOYMENT, LD_BOTH]);
+    console.log(`Director: ${this.type}`);
     Global.director = this.type;
 
     // start with optimize for enjoyment 
