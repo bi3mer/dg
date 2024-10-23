@@ -49,7 +49,7 @@ gameScene.selfIndex = gameIndex;
 gameScene.mainMenuIndex = startIndex;
 
 playerLostScene.sceneIndex = gameIndex;
-playerWonScene.sceneIndex = startIndex;
+playerWonScene.sceneIndex = gameIndex;
 
 tutorialScene.gameSceneIndex = gameIndex;
 
