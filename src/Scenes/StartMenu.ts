@@ -24,7 +24,7 @@ export class StartMenu extends Scene {
     //   return this.surveyIndex;
     // }
 
-    if (engine.keyDown.has(Key.ENTER)) {
+    if (engine.keyDown.has(Key.SPACE)) {
       engine.keyDown.clear();
 
       if (Cookie.get("completed tutorial")) {
@@ -38,7 +38,7 @@ export class StartMenu extends Scene {
       engine.drawText(360, 100, "DungeonGrams");
 
       engine.setFont(20);
-      engine.drawText(385, 150, "Press Enter to Start");
+      engine.drawText(385, 150, "Press 'Space' to Start");
 
       engine.drawText(250, 200, "& gives you stamina", "yellow");
       engine.drawText(250, 222, "Collect all * to open the portal.", "yellow");
