@@ -15,30 +15,31 @@ export class Engine {
   private ctx: CanvasRenderingContext2D;
   private blackBoard: Map<string, any> = new Map<string, any>();
   private fontSize = 20;
-  private font = 'Courier New'
+  private font = "Courier New";
   private running = true;
 
+  private dtCallback: undefined | ((dt: number) => void);
+
   constructor() {
-    window.addEventListener('keydown', (e: KeyboardEvent) => {
+    window.addEventListener("keydown", (e: KeyboardEvent) => {
       const k = keyCodeToKey(e.key);
       if (k == Key.DOWN || k == Key.UP || k == Key.LEFT || k == Key.RIGHT) {
         e.preventDefault();
       }
 
       if (!this.keyDown.has(k)) {
-        this.keyDown.add(k)
+        this.keyDown.add(k);
       }
 
       this.keyPress.add(k);
     });
 
-    window.addEventListener('keyup', (e: KeyboardEvent) => {
+    window.addEventListener("keyup", (e: KeyboardEvent) => {
       const k = keyCodeToKey(e.key);
       this.keyDown.delete(k);
     });
 
-
-    const canvas = document.getElementById('canvas') as HTMLCanvasElement;
+    const canvas = document.getElementById("canvas") as HTMLCanvasElement;
     this.ctx = canvas.getContext("2d")!;
     this.setFont();
 
@@ -64,8 +65,9 @@ export class Engine {
     return this.scenes.length - 1;
   }
 
-  public start(): void {
-    let oldTimeStamp: number;
+  public start(dtCallback: undefined | ((dt: number) => void)): void {
+    this.dtCallback = dtCallback;
+    let oldTimeStamp: number = performance.now();
     let fps: number;
 
     this.scenes[this.sceneIndex].onEnter(this);
@@ -78,7 +80,7 @@ export class Engine {
 
       // reset background
       if (this.clearBackground) {
-        this.ctx.fillStyle = 'black';
+        this.ctx.fillStyle = "black";
         this.ctx.fillRect(0, 0, this.width, this.height);
       }
 
@@ -90,17 +92,21 @@ export class Engine {
         const tempSize = this.fontSize;
         const tempFont = this.font;
 
-        this.setFont(8, 'Courier New');
-        this.drawText(this.width - 60, 15, `FPS: ${fps}`, 'red');
+        this.setFont(8, "Courier New");
+        this.drawText(this.width - 60, 15, `FPS: ${fps}`, "red");
         this.setFont(tempSize, tempFont);
       }
 
       this.keyPress.clear();
 
+      if (this.dtCallback !== undefined) {
+        this.dtCallback(this.delta);
+      }
+
       if (this.running) {
         window.requestAnimationFrame(gameLoop);
       }
-    }
+    };
 
     window.requestAnimationFrame(gameLoop);
   }
@@ -109,12 +115,15 @@ export class Engine {
     const i = this.scenes[this.sceneIndex].update(this);
     if (i !== -1) {
       this.scenes[this.sceneIndex].onExit(this);
-      this.sceneIndex = i
+      this.sceneIndex = i;
       this.scenes[this.sceneIndex].onEnter(this);
     }
   }
 
-  public setFont(size: number | undefined = undefined, font: string | undefined = undefined) {
+  public setFont(
+    size: number | undefined = undefined,
+    font: string | undefined = undefined,
+  ) {
     if (size != undefined) {
       this.fontSize = size;
     }
@@ -132,8 +141,8 @@ export class Engine {
     width: number,
     height: number,
     strokeWidth: number,
-    color: string): void {
-
+    color: string,
+  ): void {
     this.ctx.lineWidth = strokeWidth;
     this.ctx.strokeStyle = color;
     this.ctx.strokeRect(x, y, width, height);
@@ -144,8 +153,8 @@ export class Engine {
     y: number,
     width: number,
     height: number,
-    color: string): void {
-
+    color: string,
+  ): void {
     this.ctx.fillStyle = color;
     this.ctx.fillRect(x, y, width, height);
   }
@@ -154,9 +163,10 @@ export class Engine {
     x: number,
     y: number,
     char: string,
-    fontColor = 'white',
+    fontColor = "white",
     background = false,
-    backgroundColor = "white"): void {
+    backgroundColor = "white",
+  ): void {
     // background
     if (background) {
       const txtMeasure = this.ctx.measureText(char);
@@ -165,7 +175,8 @@ export class Engine {
         y - this.fontSize * 0.7,
         txtMeasure.width,
         this.fontSize - 2,
-        backgroundColor);
+        backgroundColor,
+      );
     }
 
     // text

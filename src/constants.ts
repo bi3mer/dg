@@ -1,3 +1,5 @@
+export const IS_STUDY = true;
+
 export const NUM_ROWS = 11;
 export const MAX_STAMINA = 40;
 export const FOOD_STAMINA = 30;
@@ -20,14 +22,14 @@ export const KEY_DEATH = "death";
 export const KEY_END = "end";
 
 // colors
-export const ENEMY_TURN_NEXT_COLOR = '#FF000022';
-export const ENEMY_PAUSE_COLOR = '#FF440011';
+export const ENEMY_TURN_NEXT_COLOR = "#FF000022";
+export const ENEMY_PAUSE_COLOR = "#FF440011";
 
 // level director: types
-export const LD_RANDOM = 'random';
-export const LD_ENJOYMENT = 'enjoyment';
-export const LD_DIFFICULTY = 'difficulty';
-export const LD_BOTH = 'both';
+export const LD_RANDOM = "random";
+export const LD_ENJOYMENT = "enjoyment";
+export const LD_DIFFICULTY = "difficulty";
+export const LD_BOTH = "both";
 
 // level director: how often to switch optimization types between enjoyment and difficulty
 export const LD_SWITCH = 3;

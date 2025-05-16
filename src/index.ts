@@ -4,6 +4,7 @@ import { Global } from "./Global";
 import { DB } from "./Database";
 import { QUESTIONS } from "./questions";
 import { fischerYatesShuffle } from "./Random";
+import { IS_STUDY } from "./constants";
 
 DB.init();
 
@@ -57,94 +58,34 @@ playerWonScene.sceneIndex = gameIndex;
 
 tutorialScene.gameSceneIndex = gameIndex;
 
-engine.start();
+const timeField = document.getElementById("time")!;
+if (!IS_STUDY) {
+  timeField.style.display = "none";
+  engine.start(undefined);
+} else {
+  let timeLeft = 60 * 10; // 10 minutes
+  engine.start((dt) => {
+    if (timeLeft > 0) {
+      timeLeft -= dt;
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = Math.round(timeLeft - minutes * 60);
+      timeField.innerHTML = `${minutes}:${seconds.toString().padStart(2, "0")}`;
+    } else {
+      // time is over, change the scene
+      engine.shutoff();
 
-// -------------- Set up survey ------------------
-// double shuffle because why not
-fischerYatesShuffle(QUESTIONS);
-fischerYatesShuffle(QUESTIONS);
+      document.getElementById("time")!.style.display = "none";
+      document.getElementById("game")!.style.display = "none";
+      document.getElementById("instructions")!.style.display = "inline";
 
-// get where we are going to place the survey
-const questionnaire = document.getElementById("questionnaire");
-
-// populate HTML with the questions
-let i = 0;
-for (; i < QUESTIONS.length; ++i) {
-  const q = QUESTIONS[i];
-  const id = q.split(" ").join("_");
-
-  const formElement = `<fieldset id="${id}">
-  <label for="${id}" required><b>${q}</b></label>
-    <br/>
-    <br/>
-    <table>
-      <tr>
-        <td></td>
-        <td>-3</td>
-        <td>-2</td>
-        <td>-1</td>
-        <td>&#20;0</td>
-        <td>&#20;1</td>
-        <td>&#20;2</td>
-        <td>&#20;3</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Strongly disagree</td>
-        <td><input type="radio" name="${id}" value="-3"/></td>
-        <td><input type="radio" name="${id}" value="-2"/></td>
-        <td><input type="radio" name="${id}" value="-1"/></td>
-        <td><input type="radio" name="${id}" value="0"/></td>
-        <td><input type="radio" name="${id}" value="1"/></td>
-        <td><input type="radio" name="${id}" value="2"/></td>
-        <td><input type="radio" name="${id}" value="3"/></td>
-        <td>Strongly agree</td>
-      </tr>
-    </table>
-  </fieldset>
-  <br/>`;
-
-  questionnaire!.innerHTML += formElement;
-}
-
-// create the submit button
-var submitButton = document.createElement("button");
-submitButton.type = "submit";
-submitButton.innerText = "Submit";
-questionnaire!.appendChild(submitButton);
-
-// form submission behavior
-questionnaire!.onsubmit = (event) => {
-  event.preventDefault();
-
-  let answers: { [key: string]: Number } = {};
-
-  for (i = 0; i < QUESTIONS.length; ++i) {
-    const Q = QUESTIONS[i];
-    const N = Q.split(" ").join("_");
-    let elements = document.getElementsByName(N);
-
-    let found = false;
-    for (let j = 0; j < 7; ++j) {
-      // size will always be 7, look at radio buttons above
-      const E = elements[j] as HTMLInputElement;
-      if (E.checked) {
-        answers[Q] = Number(E.value);
-        found = true;
-        break;
-      }
+      document.getElementById("instructions")!.innerHTML = `
+        Please continue to the survey:
+        <a
+            style="color: yellow"
+            href="https://neu.co1.qualtrics.com/jfe/form/SV_8H22NmUsm0OLxR4?userid=${Global.playerID}"
+            >https://neu.co1.qualtrics.com/jfe/form/SV_8H22NmUsm0OLxR4?userid=${Global.playerID}</a
+        >
+        `;
     }
-
-    document.getElementById(N)!.style.borderColor = found ? "white" : "red";
-  }
-
-  if (Object.keys(answers).length == QUESTIONS.length) {
-    DB.submitSurvey(answers);
-    console.log("Survey submitted");
-    document.getElementById("survey")!.style.display = "none";
-    document.getElementById("complete")!.style.display = "block";
-  } else {
-    document.getElementById("errorText")!.innerText =
-      "Please fill in the whole questionnaire. Red boxes indicate missed answers.";
-  }
-};
+  });
+}

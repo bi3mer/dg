@@ -149,6 +149,8 @@ export class LevelDirector {
   }
 
   public get(levelSegments: number): string[] {
+    this.playerIsOnLastLevel = false;
+
     let pi = policyIteration(HAND_MDP, 0.95, true, true, 20);
     this.columnsPerLevel = [];
 
@@ -165,7 +167,8 @@ export class LevelDirector {
       const k = choice(pi[this.keys[i]]);
       this.keys.push(k);
 
-      if (k === KEY_END) {
+      if (k.includes(KEY_END)) {
+        this.playerIsOnLastLevel = true;
         break;
       }
     }
@@ -173,9 +176,6 @@ export class LevelDirector {
     // remove START id from keys since we won't use it after this
     this.keys.splice(0, 1);
     console.log(this.keys);
-
-    // Update if the player is on the last level
-    this.playerIsOnLastLevel = this.keys.includes(KEY_END);
 
     // Populate the level
     let r: number;
@@ -191,17 +191,16 @@ export class LevelDirector {
       // add link if necessary. Note, we add it to state level so columnsPerLevel
       // is correct
       if (i > 0) {
-        const edge = this.mdp.getEdge(
-          this.keys[i - 1],
-          this.keys[i],
-        ) as CustomEdge;
-        const link = edge.link;
-        const linkLength = link.length;
-        if (linkLength > 0) {
-          for (let jj = 0; jj < linkLength; ++jj) {
-            const column = link[jj];
-            for (r = 0; r < NUM_ROWS; ++r) {
-              stateLVL[r] = column[r] + stateLVL[r];
+        const edge = this.mdp.getEdge(this.keys[i - 1], this.keys[i]);
+        if (edge instanceof CustomEdge) {
+          const link = edge.link;
+          const linkLength = link.length;
+          if (linkLength > 0) {
+            for (let jj = 0; jj < linkLength; ++jj) {
+              const column = link[jj];
+              for (r = 0; r < NUM_ROWS; ++r) {
+                stateLVL[r] = column[r] + stateLVL[r];
+              }
             }
           }
         }

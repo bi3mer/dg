@@ -2,10 +2,11 @@
   "scale": 1.0,
   "graph": {
     "start": {
-      "x": 99,
-      "y": 307,
-      "reward": 0.0,
+      "x": 135,
+      "y": 564,
+      "reward": -20.0,
       "neighbors": [
+        "end",
         "1"
       ],
       "depth": 0
@@ -13,7 +14,7 @@
     "idk": {
       "x": 805,
       "y": 317,
-      "reward": 0.0,
+      "reward": -5.0,
       "neighbors": [
         "end"
       ],
@@ -22,7 +23,7 @@
     "1": {
       "x": 188,
       "y": 307,
-      "reward": 1.0,
+      "reward": -19.0,
       "neighbors": [
         "switch"
       ],
@@ -31,7 +32,7 @@
     "switch": {
       "x": 283,
       "y": 306,
-      "reward": 0.0,
+      "reward": -18.0,
       "neighbors": [
         "enemy"
       ],
@@ -40,14 +41,14 @@
     "end": {
       "x": 1011,
       "y": 320,
-      "reward": 0.0,
+      "reward": 10.0,
       "neighbors": [],
-      "depth": 5
+      "depth": 1
     },
     "enemy": {
       "x": 395,
       "y": 310,
-      "reward": 0.0,
+      "reward": -17.0,
       "neighbors": [
         "idk"
       ],
