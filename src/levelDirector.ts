@@ -30,28 +30,6 @@ export class LevelDirector {
   private mdp: Graph;
 
   constructor() {
-    // assign the director
-    const urlParams = new URLSearchParams(window.location.search);
-    // if (urlParams.has('default')) {
-    //   this.type = LD_BOTH;
-    // } else {
-    //   this.type = choice([LD_RANDOM, LD_DIFFICULTY, LD_ENJOYMENT, LD_BOTH]);
-    // }
-
-    // console.log(`Director: ${this.type}`);
-    // Global.director = this.type;
-
-    // start with optimize for enjoyment
-    // if (this.type == LD_DIFFICULTY) {
-    //   this.optimizeDifficulty = true;
-    // } else {
-    //   this.optimizeDifficulty = false;
-    // }
-
-    // // update reward for all the nodes
-    // for (let key in MDP.nodes) {
-    //   (MDP.nodes[key] as CustomNode).updateReward(this.optimizeDifficulty);
-    // }
     this.mdp = HAND_MDP;
   }
 
@@ -151,7 +129,9 @@ export class LevelDirector {
   public get(levelSegments: number): string[] {
     this.playerIsOnLastLevel = false;
 
-    let pi = policyIteration(HAND_MDP, 0.95, true, true, 20);
+    let pi = policyIteration(this.mdp, 0.95, true, true, 20);
+    console.log(pi);
+    console.log(this.mdp);
     this.columnsPerLevel = [];
 
     // If player won, don't start from a level that they have definitely
@@ -161,6 +141,8 @@ export class LevelDirector {
     } else {
       this.keys = [KEY_START];
     }
+
+    console.log(this.keys);
 
     // USE MDP to create a policy and generate a new level
     for (let i = 0; i < levelSegments; ++i) {

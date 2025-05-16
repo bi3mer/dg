@@ -2,57 +2,93 @@
   "scale": 1.0,
   "graph": {
     "start": {
-      "x": 135,
-      "y": 564,
+      "x": 99,
+      "y": 308,
       "reward": -20.0,
       "neighbors": [
-        "end",
-        "1"
+        "s"
       ],
       "depth": 0
     },
     "idk": {
-      "x": 805,
-      "y": 317,
+      "x": 813,
+      "y": 302,
       "reward": -5.0,
       "neighbors": [
         "end"
       ],
-      "depth": 4
+      "depth": 7
     },
-    "1": {
-      "x": 188,
-      "y": 307,
-      "reward": -19.0,
+    "s": {
+      "x": 196,
+      "y": 308,
+      "reward": -18.0,
       "neighbors": [
-        "switch"
+        "e"
       ],
       "depth": 1
     },
-    "switch": {
-      "x": 283,
-      "y": 306,
-      "reward": -18.0,
+    "end": {
+      "x": 919,
+      "y": 303,
+      "reward": 10.0,
+      "neighbors": [],
+      "depth": 8
+    },
+    "e": {
+      "x": 291,
+      "y": 308,
+      "reward": -17.0,
       "neighbors": [
-        "enemy"
+        "e2"
       ],
       "depth": 2
     },
-    "end": {
-      "x": 1011,
-      "y": 320,
-      "reward": 10.0,
-      "neighbors": [],
-      "depth": 1
+    "e2": {
+      "x": 385,
+      "y": 307,
+      "reward": -16.0,
+      "neighbors": [
+        "e3"
+      ],
+      "depth": 3
     },
-    "enemy": {
-      "x": 395,
-      "y": 310,
-      "reward": -17.0,
+    "e3": {
+      "x": 489,
+      "y": 306,
+      "reward": -15.0,
+      "neighbors": [
+        "f"
+      ],
+      "depth": 4
+    },
+    "f": {
+      "x": 590,
+      "y": 304,
+      "reward": -14.0,
+      "neighbors": [
+        "ld-s",
+        "ld-f"
+      ],
+      "depth": 5
+    },
+    "ld-f": {
+      "x": 686,
+      "y": 264,
+      "reward": -13.0,
       "neighbors": [
         "idk"
       ],
-      "depth": 3
+      "depth": 6
+    },
+    "ld-s": {
+      "x": 687,
+      "y": 344,
+      "reward": -13.0,
+      "neighbors": [
+        "idk"
+      ],
+      "depth": 6
     }
   }
 }
