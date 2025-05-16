@@ -1,32 +1,18 @@
-import { Graph, greedyPolicy, policyIteration, randomPolicy } from "./GDM-TS";
+import { Graph, policyIteration } from "./GDM-TS";
 import { Edge } from "./GDM-TS/src/Graph/edge";
 import { choice } from "./GDM-TS/src/rand";
-import {
-  KEY_DEATH,
-  KEY_START,
-  NUM_ROWS,
-  KEY_END,
-  LD_RANDOM,
-  LD_DIFFICULTY,
-  LD_ENJOYMENT,
-  LD_BOTH,
-  LD_SWITCH,
-} from "./constants";
+import { KEY_DEATH, KEY_START, NUM_ROWS, KEY_END } from "./constants";
 import { CustomNode } from "./customNode";
-// import { MDP, idToLevel } from "./levels";
 import { HAND_MDP } from "./handcraftedMDP";
 import { CustomEdge } from "./customEdge";
-import { Global } from "./Global";
 
 export class LevelDirector {
   public playerIsOnLastLevel: boolean = false;
   public keys: string[] = [];
 
   private columnsPerLevel: number[] = [];
-  private lossesInARow: number = 0;
   private playerWonLastRound: boolean = false;
-  private levelsPlayed: number = 0;
-
+  private lossesInARow: number = 0;
   private mdp: Graph;
 
   constructor() {

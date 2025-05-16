@@ -1,6 +1,5 @@
 import { C } from "../Components";
 import { S } from "../Systems";
-import { idToLevel } from "../levels";
 
 import {
   Engine,
@@ -36,7 +35,6 @@ export class Game extends ECSScene {
   public onEnter(engine: Engine): void {
     const xMod = 20;
     const yMod = 20;
-    const offsetX = 8;
     const offsetY = 7;
     let xMin = 1000;
     let xMax = 0;
@@ -49,6 +47,7 @@ export class Game extends ECSScene {
     const lvl = this.director.get(2);
 
     const columns = lvl[0].length;
+    const offsetX = (engine.width / xMod - columns - 3) / 2;
     const modColumns = columns + 4;
     for (let y = 0; y < NUM_ROWS; ++y) {
       // add start values to both ends of the row
