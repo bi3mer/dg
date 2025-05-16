@@ -116,8 +116,6 @@ export class LevelDirector {
     this.playerIsOnLastLevel = false;
 
     let pi = policyIteration(this.mdp, 0.95, true, true, 20);
-    console.log(pi);
-    console.log(this.mdp);
     this.columnsPerLevel = [];
 
     // If player won, don't start from a level that they have definitely
@@ -127,8 +125,6 @@ export class LevelDirector {
     } else {
       this.keys = [KEY_START];
     }
-
-    console.log(this.keys);
 
     // USE MDP to create a policy and generate a new level
     for (let i = 0; i < levelSegments; ++i) {

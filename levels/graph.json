@@ -11,13 +11,13 @@
       "depth": 0
     },
     "idk": {
-      "x": 813,
-      "y": 302,
+      "x": 1408,
+      "y": 288,
       "reward": -5.0,
       "neighbors": [
         "end"
       ],
-      "depth": 7
+      "depth": 10
     },
     "s": {
       "x": 196,
@@ -29,11 +29,11 @@
       "depth": 1
     },
     "end": {
-      "x": 919,
-      "y": 303,
+      "x": 1512,
+      "y": 284,
       "reward": 10.0,
       "neighbors": [],
-      "depth": 8
+      "depth": 11
     },
     "e": {
       "x": 291,
@@ -67,8 +67,8 @@
       "y": 304,
       "reward": -14.0,
       "neighbors": [
-        "ld-s",
-        "ld-f"
+        "ld-f",
+        "ld-s"
       ],
       "depth": 5
     },
@@ -77,7 +77,8 @@
       "y": 264,
       "reward": -13.0,
       "neighbors": [
-        "idk"
+        "ld-s",
+        "sp"
       ],
       "depth": 6
     },
@@ -86,9 +87,60 @@
       "y": 344,
       "reward": -13.0,
       "neighbors": [
-        "idk"
+        "ld-f",
+        "sp"
       ],
       "depth": 6
+    },
+    "sp": {
+      "x": 771,
+      "y": 303,
+      "reward": 0.0,
+      "neighbors": [
+        "e2-s",
+        "ps-e1"
+      ],
+      "depth": 7
+    },
+    "ps-e1": {
+      "x": 870,
+      "y": 349,
+      "reward": 0.0,
+      "neighbors": [
+        "e2-s",
+        "e3-s"
+      ],
+      "depth": 8
+    },
+    "e3-s": {
+      "x": 968,
+      "y": 232,
+      "reward": 0.0,
+      "neighbors": [
+        "ps-e2",
+        "idk"
+      ],
+      "depth": 9
+    },
+    "e2-s": {
+      "x": 872,
+      "y": 230,
+      "reward": 0.0,
+      "neighbors": [
+        "ps-e1",
+        "ps-e2"
+      ],
+      "depth": 8
+    },
+    "ps-e2": {
+      "x": 973,
+      "y": 345,
+      "reward": 0.0,
+      "neighbors": [
+        "idk",
+        "e3-s"
+      ],
+      "depth": 10
     }
   }
 }
