@@ -1,3 +1,6 @@
 [submodule "src/GDM-TS"]
 	path = src/GDM-TS
 	url = https://github.com/bi3mer/GDM-TS.git
+[submodule "levels/dungeongrams"]
+	path = levels/dungeongrams
+	url = https://github.com/crowdgames/dungeongrams.git

@@ -5,142 +5,148 @@
       "x": 99,
       "y": 308,
       "reward": -20.0,
-      "neighbors": [
-        "s"
-      ],
+      "neighbors": ["s"],
       "depth": 0
     },
     "idk": {
-      "x": 1408,
-      "y": 288,
+      "x": 1342,
+      "y": 313,
       "reward": -5.0,
-      "neighbors": [
-        "end"
-      ],
-      "depth": 10
+      "neighbors": ["end"],
+      "depth": 13
     },
     "s": {
       "x": 196,
       "y": 308,
       "reward": -18.0,
-      "neighbors": [
-        "e"
-      ],
+      "neighbors": ["e"],
       "depth": 1
     },
     "end": {
-      "x": 1512,
-      "y": 284,
+      "x": 1463,
+      "y": 309,
       "reward": 10.0,
       "neighbors": [],
-      "depth": 11
+      "depth": 14
     },
     "e": {
       "x": 291,
       "y": 308,
       "reward": -17.0,
-      "neighbors": [
-        "e2"
-      ],
+      "neighbors": ["e2"],
       "depth": 2
     },
     "e2": {
       "x": 385,
       "y": 307,
       "reward": -16.0,
-      "neighbors": [
-        "e3"
-      ],
+      "neighbors": ["e3"],
       "depth": 3
     },
     "e3": {
       "x": 489,
       "y": 306,
       "reward": -15.0,
-      "neighbors": [
-        "f"
-      ],
+      "neighbors": ["f"],
       "depth": 4
     },
     "f": {
       "x": 590,
       "y": 304,
       "reward": -14.0,
-      "neighbors": [
-        "ld-f",
-        "ld-s"
-      ],
+      "neighbors": ["ld-s", "ld-f"],
       "depth": 5
     },
     "ld-f": {
       "x": 686,
       "y": 264,
       "reward": -13.0,
-      "neighbors": [
-        "ld-s",
-        "sp"
-      ],
+      "neighbors": ["sp"],
       "depth": 6
     },
     "ld-s": {
       "x": 687,
       "y": 344,
       "reward": -13.0,
-      "neighbors": [
-        "ld-f",
-        "sp"
-      ],
+      "neighbors": ["sp"],
       "depth": 6
     },
     "sp": {
       "x": 771,
       "y": 303,
-      "reward": 0.0,
-      "neighbors": [
-        "e2-s",
-        "ps-e1"
-      ],
+      "reward": -12.0,
+      "neighbors": ["ps-e1", "e2-s"],
       "depth": 7
     },
     "ps-e1": {
-      "x": 870,
-      "y": 349,
-      "reward": 0.0,
-      "neighbors": [
-        "e2-s",
-        "e3-s"
-      ],
+      "x": 865,
+      "y": 352,
+      "reward": -11.0,
+      "neighbors": ["e3-s"],
       "depth": 8
     },
     "e3-s": {
-      "x": 968,
-      "y": 232,
-      "reward": 0.0,
-      "neighbors": [
-        "ps-e2",
-        "idk"
-      ],
+      "x": 949,
+      "y": 265,
+      "reward": -10.0,
+      "neighbors": ["ps-e1-d", "ps-e3"],
       "depth": 9
     },
     "e2-s": {
-      "x": 872,
-      "y": 230,
-      "reward": 0.0,
-      "neighbors": [
-        "ps-e1",
-        "ps-e2"
-      ],
+      "x": 862,
+      "y": 267,
+      "reward": -11.0,
+      "neighbors": ["ps-e2"],
       "depth": 8
     },
     "ps-e2": {
-      "x": 973,
-      "y": 345,
-      "reward": 0.0,
-      "neighbors": [
-        "idk",
-        "e3-s"
-      ],
+      "x": 955,
+      "y": 352,
+      "reward": -10.0,
+      "neighbors": ["ps-e1-d", "e3-s-d"],
+      "depth": 9
+    },
+    "ps-e3": {
+      "x": 1040,
+      "y": 388,
+      "reward": -9.0,
+      "neighbors": ["e4-s-d", "ps-e2-d"],
       "depth": 10
+    },
+    "ps-e1-d": {
+      "x": 1041,
+      "y": 309,
+      "reward": -9.0,
+      "neighbors": ["e4-s-d"],
+      "depth": 10
+    },
+    "e3-s-d": {
+      "x": 1041,
+      "y": 235,
+      "reward": -9.0,
+      "neighbors": ["ps-e2-d"],
+      "depth": 10
+    },
+    "ps-e2-d": {
+      "x": 1130,
+      "y": 347,
+      "reward": -8.0,
+      "neighbors": ["ps-e3-d"],
+      "depth": 11
+    },
+    "ps-e3-d": {
+      "x": 1241,
+      "y": 313,
+      "reward": -7.0,
+      "neighbors": ["idk"],
+      "depth": 12
+    },
+    "e4-s-d": {
+      "x": 1127,
+      "y": 267,
+      "reward": -8.0,
+      "neighbors": ["ps-e3-d"],
+      "depth": 11
     }
   }
 }
