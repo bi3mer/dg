@@ -1,6 +1,6 @@
 XXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXX
------------------
+---------------&-
 ----------#------
 ------XXX--------
 ------X#*-----#--
@@ -12,7 +12,7 @@ XXXXXXXXXXXXXXXXX
 &
 XXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXX
------------------
+---------------&-
 ---#-------------
 ------XXX--------
 ------*#X--------

@@ -2,8 +2,8 @@
   "scale": 1.0,
   "graph": {
     "start": {
-      "x": -548,
-      "y": 343,
+      "x": -472,
+      "y": 376,
       "reward": -20.0,
       "neighbors": [
         "s"
@@ -11,17 +11,17 @@
       "depth": 0
     },
     "idk": {
-      "x": 1385,
-      "y": 357,
+      "x": 1449,
+      "y": 388,
       "reward": -5.0,
       "neighbors": [
-        "end"
+        "hardest"
       ],
-      "depth": 18
+      "depth": 20
     },
     "s": {
-      "x": -451,
-      "y": 343,
+      "x": -375,
+      "y": 376,
       "reward": -18.0,
       "neighbors": [
         "e"
@@ -29,15 +29,15 @@
       "depth": 1
     },
     "end": {
-      "x": 1521,
-      "y": 362,
+      "x": 1646,
+      "y": 387,
       "reward": 10.0,
       "neighbors": [],
-      "depth": 19
+      "depth": 22
     },
     "e": {
-      "x": -356,
-      "y": 343,
+      "x": -280,
+      "y": 376,
       "reward": -17.0,
       "neighbors": [
         "e2"
@@ -45,8 +45,8 @@
       "depth": 2
     },
     "e2": {
-      "x": -262,
-      "y": 342,
+      "x": -186,
+      "y": 375,
       "reward": -16.0,
       "neighbors": [
         "e3"
@@ -54,8 +54,8 @@
       "depth": 3
     },
     "e3": {
-      "x": -158,
-      "y": 341,
+      "x": -82,
+      "y": 374,
       "reward": -15.0,
       "neighbors": [
         "f"
@@ -63,8 +63,8 @@
       "depth": 4
     },
     "f": {
-      "x": -57,
-      "y": 339,
+      "x": 19,
+      "y": 372,
       "reward": -14.0,
       "neighbors": [
         "ld-f",
@@ -73,8 +73,8 @@
       "depth": 5
     },
     "ld-f": {
-      "x": 39,
-      "y": 299,
+      "x": 115,
+      "y": 332,
       "reward": -13.0,
       "neighbors": [
         "sp"
@@ -82,8 +82,8 @@
       "depth": 6
     },
     "ld-s": {
-      "x": 40,
-      "y": 379,
+      "x": 116,
+      "y": 412,
       "reward": -13.0,
       "neighbors": [
         "sp"
@@ -91,8 +91,8 @@
       "depth": 6
     },
     "sp": {
-      "x": 124,
-      "y": 338,
+      "x": 200,
+      "y": 371,
       "reward": -12.0,
       "neighbors": [
         "ps-e1",
@@ -101,8 +101,8 @@
       "depth": 7
     },
     "ps-e1": {
-      "x": 218,
-      "y": 387,
+      "x": 294,
+      "y": 420,
       "reward": -11.0,
       "neighbors": [
         "e3-s"
@@ -110,18 +110,18 @@
       "depth": 8
     },
     "e3-s": {
-      "x": 302,
-      "y": 300,
+      "x": 378,
+      "y": 333,
       "reward": -10.0,
       "neighbors": [
-        "ps-e1-d",
-        "ps-e3"
+        "ps-e3",
+        "ps-e1-d"
       ],
       "depth": 9
     },
     "e2-s": {
-      "x": 215,
-      "y": 302,
+      "x": 291,
+      "y": 335,
       "reward": -11.0,
       "neighbors": [
         "ps-e2"
@@ -129,28 +129,28 @@
       "depth": 8
     },
     "ps-e2": {
-      "x": 308,
-      "y": 387,
+      "x": 384,
+      "y": 420,
       "reward": -10.0,
       "neighbors": [
-        "ps-e1-d",
-        "e3-s-d"
+        "e3-s-d",
+        "ps-e1-d"
       ],
       "depth": 9
     },
     "ps-e3": {
-      "x": 393,
-      "y": 423,
+      "x": 469,
+      "y": 456,
       "reward": -9.0,
       "neighbors": [
-        "e4-s-d",
-        "ps-e2-d"
+        "ps-e2-d",
+        "e4-s-d"
       ],
       "depth": 10
     },
     "ps-e1-d": {
-      "x": 394,
-      "y": 344,
+      "x": 470,
+      "y": 377,
       "reward": -9.0,
       "neighbors": [
         "e4-s-d"
@@ -158,8 +158,8 @@
       "depth": 10
     },
     "e3-s-d": {
-      "x": 394,
-      "y": 270,
+      "x": 470,
+      "y": 303,
       "reward": -9.0,
       "neighbors": [
         "ps-e2-d"
@@ -167,8 +167,8 @@
       "depth": 10
     },
     "ps-e2-d": {
-      "x": 483,
-      "y": 382,
+      "x": 559,
+      "y": 415,
       "reward": -8.0,
       "neighbors": [
         "ps-e3-d"
@@ -176,17 +176,19 @@
       "depth": 11
     },
     "ps-e3-d": {
-      "x": 594,
-      "y": 348,
+      "x": 670,
+      "y": 381,
       "reward": -7.0,
       "neighbors": [
-        "pz"
+        "pa1",
+        "pa2",
+        "pa3"
       ],
       "depth": 12
     },
     "e4-s-d": {
-      "x": 480,
-      "y": 302,
+      "x": 556,
+      "y": 335,
       "reward": -8.0,
       "neighbors": [
         "ps-e3-d"
@@ -194,49 +196,115 @@
       "depth": 11
     },
     "pz": {
-      "x": 921,
-      "y": 354,
+      "x": 997,
+      "y": 387,
       "reward": 0.0,
       "neighbors": [
         "pz-b"
       ],
-      "depth": 13
+      "depth": 15
     },
     "pz-e": {
-      "x": 1105,
-      "y": 356,
+      "x": 1181,
+      "y": 389,
       "reward": 0.0,
       "neighbors": [
         "px-b-1"
       ],
-      "depth": 15
+      "depth": 17
     },
     "pz-e2": {
-      "x": 1283,
-      "y": 356,
+      "x": 1359,
+      "y": 389,
       "reward": 0.0,
       "neighbors": [
         "idk"
       ],
-      "depth": 17
+      "depth": 19
     },
     "pz-b": {
-      "x": 1007,
-      "y": 355,
+      "x": 1083,
+      "y": 388,
       "reward": 0.0,
       "neighbors": [
         "pz-e"
       ],
-      "depth": 14
+      "depth": 16
     },
     "px-b-1": {
-      "x": 1195,
-      "y": 356,
+      "x": 1271,
+      "y": 389,
       "reward": 0.0,
       "neighbors": [
         "pz-e2"
       ],
-      "depth": 16
+      "depth": 18
+    },
+    "pa1": {
+      "x": 755,
+      "y": 312,
+      "reward": 0.0,
+      "neighbors": [
+        "pa2-e",
+        "pa3-e"
+      ],
+      "depth": 13
+    },
+    "pa2": {
+      "x": 757,
+      "y": 400,
+      "reward": 0.0,
+      "neighbors": [
+        "pa1-e",
+        "pa3-e"
+      ],
+      "depth": 13
+    },
+    "pa3": {
+      "x": 763,
+      "y": 491,
+      "reward": 0.0,
+      "neighbors": [
+        "pa2-e",
+        "pa1-e"
+      ],
+      "depth": 13
+    },
+    "hardest": {
+      "x": 1546,
+      "y": 387,
+      "reward": 0.0,
+      "neighbors": [
+        "end"
+      ],
+      "depth": 21
+    },
+    "pa2-e": {
+      "x": 862,
+      "y": 397,
+      "reward": 0.0,
+      "neighbors": [
+        "pz"
+      ],
+      "depth": 14
+    },
+    "pa3-e": {
+      "x": 857,
+      "y": 495,
+      "reward": 0.0,
+      "neighbors": [
+        "pz"
+      ],
+      "depth": 14
+    },
+    "pa1-e": {
+      "x": 859,
+      "y": 307,
+      "reward": 0.0,
+      "neighbors": [
+        "pz"
+      ],
+      "depth": 14
     }
   }
 }
