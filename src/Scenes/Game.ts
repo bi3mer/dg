@@ -110,6 +110,9 @@ export class Game extends ECSScene {
       }
     }
 
+    console.log(xMin, xMax);
+    console.log(yMin, yMax);
+
     for (let y = 3; y < engine.height / yMod - 1; ++y) {
       for (let x = 1; x < engine.width / xMod - 1; ++x) {
         if (x < xMin || x > xMax || y < yMin || y > yMax) {

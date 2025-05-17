@@ -1,9 +1,9 @@
 {
-  "scale": 0.9299999999999999,
+  "scale": 0.7699999999999998,
   "graph": {
     "start": {
       "x": 41,
-      "y": 500,
+      "y": 585,
       "reward": -28.0,
       "neighbors": [
         "s"
@@ -11,17 +11,17 @@
       "depth": 0
     },
     "idk": {
-      "x": 1726,
-      "y": 536,
-      "reward": -9.0,
+      "x": 2121,
+      "y": 629,
+      "reward": -5.0,
       "neighbors": [
         "end"
       ],
-      "depth": 20
+      "depth": 24
     },
     "s": {
-      "x": 123,
-      "y": 501,
+      "x": 133,
+      "y": 583,
       "reward": -27.0,
       "neighbors": [
         "e"
@@ -29,15 +29,15 @@
       "depth": 1
     },
     "end": {
-      "x": 1809,
-      "y": 499,
+      "x": 2205,
+      "y": 592,
       "reward": 10.0,
       "neighbors": [],
-      "depth": 21
+      "depth": 25
     },
     "e": {
-      "x": 207,
-      "y": 500,
+      "x": 217,
+      "y": 582,
       "reward": -26.0,
       "neighbors": [
         "e2"
@@ -45,8 +45,8 @@
       "depth": 2
     },
     "e2": {
-      "x": 293,
-      "y": 499,
+      "x": 303,
+      "y": 581,
       "reward": -25.0,
       "neighbors": [
         "e3"
@@ -54,8 +54,8 @@
       "depth": 3
     },
     "e3": {
-      "x": 381,
-      "y": 499,
+      "x": 391,
+      "y": 581,
       "reward": -24.0,
       "neighbors": [
         "f"
@@ -63,8 +63,8 @@
       "depth": 4
     },
     "f": {
-      "x": 463,
-      "y": 499,
+      "x": 473,
+      "y": 581,
       "reward": -23.0,
       "neighbors": [
         "ld-s",
@@ -73,8 +73,8 @@
       "depth": 5
     },
     "ld-f": {
-      "x": 541,
-      "y": 455,
+      "x": 551,
+      "y": 537,
       "reward": -22.0,
       "neighbors": [
         "sp"
@@ -82,8 +82,8 @@
       "depth": 6
     },
     "ld-s": {
-      "x": 544,
-      "y": 531,
+      "x": 554,
+      "y": 613,
       "reward": -23.0,
       "neighbors": [
         "sp"
@@ -91,8 +91,8 @@
       "depth": 6
     },
     "sp": {
-      "x": 628,
-      "y": 495,
+      "x": 638,
+      "y": 577,
       "reward": -21.0,
       "neighbors": [
         "e2-s",
@@ -101,8 +101,8 @@
       "depth": 7
     },
     "ps-e1": {
-      "x": 707,
-      "y": 535,
+      "x": 717,
+      "y": 617,
       "reward": -20.0,
       "neighbors": [
         "e3-s"
@@ -110,18 +110,18 @@
       "depth": 8
     },
     "e3-s": {
-      "x": 793,
-      "y": 454,
+      "x": 803,
+      "y": 536,
       "reward": -19.0,
       "neighbors": [
-        "ps-e3",
-        "ps-e1-d"
+        "ps-e1-d",
+        "ps-e3"
       ],
       "depth": 9
     },
     "e2-s": {
-      "x": 707,
-      "y": 455,
+      "x": 717,
+      "y": 537,
       "reward": -20.5,
       "neighbors": [
         "ps-e2"
@@ -129,8 +129,8 @@
       "depth": 8
     },
     "ps-e2": {
-      "x": 793,
-      "y": 537,
+      "x": 803,
+      "y": 619,
       "reward": -19.0,
       "neighbors": [
         "ps-e1-d",
@@ -139,8 +139,8 @@
       "depth": 9
     },
     "ps-e3": {
-      "x": 876,
-      "y": 573,
+      "x": 886,
+      "y": 655,
       "reward": -18.4,
       "neighbors": [
         "ps-e2-d",
@@ -149,8 +149,8 @@
       "depth": 10
     },
     "ps-e1-d": {
-      "x": 878,
-      "y": 496,
+      "x": 888,
+      "y": 578,
       "reward": -18.8,
       "neighbors": [
         "e4-s-d"
@@ -158,8 +158,8 @@
       "depth": 10
     },
     "e3-s-d": {
-      "x": 877,
-      "y": 421,
+      "x": 887,
+      "y": 503,
       "reward": -18.0,
       "neighbors": [
         "ps-e2-d"
@@ -167,8 +167,8 @@
       "depth": 10
     },
     "ps-e2-d": {
-      "x": 963,
-      "y": 536,
+      "x": 973,
+      "y": 618,
       "reward": -17.5,
       "neighbors": [
         "ps-e3-d"
@@ -176,19 +176,19 @@
       "depth": 11
     },
     "ps-e3-d": {
-      "x": 1044,
-      "y": 499,
+      "x": 1054,
+      "y": 581,
       "reward": -16.0,
       "neighbors": [
-        "pa1",
+        "pa2",
         "pa3",
-        "pa2"
+        "pa1"
       ],
       "depth": 12
     },
     "e4-s-d": {
-      "x": 963,
-      "y": 453,
+      "x": 973,
+      "y": 535,
       "reward": -17.0,
       "neighbors": [
         "ps-e3-d"
@@ -196,74 +196,74 @@
       "depth": 11
     },
     "pz": {
-      "x": 1307,
-      "y": 495,
-      "reward": -13.0,
+      "x": 1695,
+      "y": 582,
+      "reward": -9.0,
       "neighbors": [
         "pz-b"
       ],
-      "depth": 15
+      "depth": 19
     },
     "pz-e": {
-      "x": 1468,
-      "y": 495,
-      "reward": -11.0,
+      "x": 1868,
+      "y": 585,
+      "reward": -7.0,
       "neighbors": [
         "px-b-1"
       ],
-      "depth": 17
+      "depth": 21
     },
     "pz-e2": {
-      "x": 1640,
-      "y": 495,
-      "reward": -10.0,
+      "x": 2033,
+      "y": 588,
+      "reward": -5.0,
       "neighbors": [
-        "hardest",
-        "idk"
+        "idk",
+        "hardest"
       ],
-      "depth": 19
+      "depth": 23
     },
     "pz-b": {
-      "x": 1383,
-      "y": 495,
-      "reward": -12.0,
+      "x": 1782,
+      "y": 585,
+      "reward": -8.0,
       "neighbors": [
         "pz-e"
       ],
-      "depth": 16
+      "depth": 20
     },
     "px-b-1": {
-      "x": 1556,
-      "y": 495,
-      "reward": -10.0,
+      "x": 1949,
+      "y": 588,
+      "reward": -6.0,
       "neighbors": [
         "pz-e2"
       ],
-      "depth": 18
+      "depth": 22
     },
     "pa1": {
-      "x": 1126,
-      "y": 420,
+      "x": 1136,
+      "y": 502,
       "reward": -15.0,
       "neighbors": [
-        "pa2-e",
-        "pa3-e"
+        "pa3-e",
+        "pa2-e"
       ],
       "depth": 13
     },
     "pa2": {
-      "x": 1127,
-      "y": 499,
+      "x": 1137,
+      "y": 581,
       "reward": -15.0,
       "neighbors": [
-        "pa1-e",
-        "pa3-e"
+        "pa3-e",
+        "pa1-e"
       ],
       "depth": 13
     },
     "pa3": {
-      "x": 1127,
-      "y": 577,
+      "x": 1137,
+      "y": 659,
       "reward": -15.0,
       "neighbors": [
         "pa2-e",
@@ -272,40 +272,162 @@
       "depth": 13
     },
     "hardest": {
-      "x": 1726,
-      "y": 459,
-      "reward": -4.0,
+      "x": 2120,
+      "y": 544,
+      "reward": -2.5,
       "neighbors": [
         "end"
       ],
-      "depth": 20
+      "depth": 24
     },
     "pa2-e": {
-      "x": 1221,
-      "y": 496,
+      "x": 1231,
+      "y": 578,
       "reward": -14.4,
       "neighbors": [
-        "pz"
+        "pa2-e2-s",
+        "pa3-e2-s"
       ],
       "depth": 14
     },
     "pa3-e": {
-      "x": 1222,
-      "y": 578,
+      "x": 1232,
+      "y": 660,
       "reward": -14.0,
       "neighbors": [
-        "pz"
+        "pa2-e2-s",
+        "pa1-e2-s"
       ],
       "depth": 14
     },
     "pa1-e": {
-      "x": 1218,
-      "y": 422,
+      "x": 1228,
+      "y": 504,
       "reward": -14.8,
+      "neighbors": [
+        "pa3-e2-s",
+        "pa1-e2-s"
+      ],
+      "depth": 14
+    },
+    "pa1-e2-s": {
+      "x": 1314,
+      "y": 577,
+      "reward": -13.0,
+      "neighbors": [
+        "m1",
+        "m3",
+        "m2"
+      ],
+      "depth": 15
+    },
+    "pa3-e2-s": {
+      "x": 1314,
+      "y": 661,
+      "reward": -13.0,
+      "neighbors": [
+        "m3",
+        "m2"
+      ],
+      "depth": 15
+    },
+    "pa2-e2-s": {
+      "x": 1314,
+      "y": 505,
+      "reward": -13.0,
+      "neighbors": [
+        "m1",
+        "m3",
+        "m2"
+      ],
+      "depth": 15
+    },
+    "m1": {
+      "x": 1420,
+      "y": 502,
+      "reward": -12.0,
+      "neighbors": [
+        "m3-m",
+        "m2-m"
+      ],
+      "depth": 16
+    },
+    "m1-m": {
+      "x": 1506,
+      "y": 502,
+      "reward": -11.0,
+      "neighbors": [
+        "m3-h",
+        "m2-h"
+      ],
+      "depth": 17
+    },
+    "m1-h": {
+      "x": 1592,
+      "y": 498,
+      "reward": -10.4,
       "neighbors": [
         "pz"
       ],
-      "depth": 14
+      "depth": 18
+    },
+    "m2": {
+      "x": 1418,
+      "y": 579,
+      "reward": -12.0,
+      "neighbors": [
+        "m1-m",
+        "m3-m"
+      ],
+      "depth": 16
+    },
+    "m2-m": {
+      "x": 1510,
+      "y": 587,
+      "reward": -11.0,
+      "neighbors": [
+        "m3-h",
+        "m1-h"
+      ],
+      "depth": 17
+    },
+    "m2-h": {
+      "x": 1593,
+      "y": 587,
+      "reward": -10.8,
+      "neighbors": [
+        "pz"
+      ],
+      "depth": 18
+    },
+    "m3": {
+      "x": 1424,
+      "y": 663,
+      "reward": -12.0,
+      "neighbors": [
+        "m1-m",
+        "m2-m"
+      ],
+      "depth": 16
+    },
+    "m3-m": {
+      "x": 1512,
+      "y": 666,
+      "reward": -11.0,
+      "neighbors": [
+        "m1-h",
+        "m2-h"
+      ],
+      "depth": 17
+    },
+    "m3-h": {
+      "x": 1590,
+      "y": 668,
+      "reward": -10.0,
+      "neighbors": [
+        "pz"
+      ],
+      "depth": 18
     }
   }
 }
