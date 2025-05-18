@@ -4,3 +4,6 @@
 [submodule "levels/dungeongrams"]
 	path = levels/dungeongrams
 	url = https://github.com/crowdgames/dungeongrams.git
+[submodule "ponos_tooling/levels/dungeongrams"]
+	path = ponos_tooling/levels/dungeongrams
+	url = https://github.com/crowdgames/dungeongrams.git

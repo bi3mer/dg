@@ -1,6 +1,5 @@
-from computational_metrics import percent_linearity, percent_leniency
-from summerville_agent import percent_playable
-from grid_tools import rows_into_columns
+from computational_metrics import *
+from levels.dungeongrams.dungeongrams import percent_playable, FLAW_NO_FLAW
 
 from json import loads, dumps
 import socket
@@ -8,7 +7,7 @@ import os
 import traceback
 import sys
 
-def server(host='localhost', port=8000):
+def server(host='localhost', port=8080):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         try:
             s.bind((host, port))
@@ -30,7 +29,18 @@ def server(host='localhost', port=8000):
                                 conn.sendall(bytes(f.read(), 'utf-8'))
                         elif cmd == b'levels':
                             lvls = []
-                            for file_name in os.listdir('levels'):
+
+                            # levels made for previous work
+                            for file_name in os.listdir(os.path.join('levels', "dungeongrams", "train")):
+                                with open(os.path.join('levels', file_name), 'r') as f:
+                                    lvls.append(f.readlines())
+
+                            for file_name in os.listdir(os.path.join('levels', "dungeongrams", "other_training_levels")):
+                                with open(os.path.join('levels', file_name), 'r') as f:
+                                    lvls.append(f.readlines())
+
+                            # levels from handcrafted progression
+                            for file_name in os.listdir(os.path.join('levels', "segments")):
                                 with open(os.path.join('levels', file_name), 'r') as f:
                                     lvls.append(f.readlines())
 
@@ -38,9 +48,9 @@ def server(host='localhost', port=8000):
                         elif cmd[:6] == b'assess':
                             lvl = loads(cmd[6:].decode('utf-8'))
                             return_data = {
-                                'completability': percent_playable(lvl),
-                                'linearity': percent_linearity(lvl),
-                                'leniency': percent_leniency(lvl),
+                                'completability': percent_playable(lvl, False, True, True, FLAW_NO_FLAW),
+                                'linearity': 0,
+                                'leniency': 0,
                             }
 
                             conn.sendall(dumps(return_data).encode('utf-8'))

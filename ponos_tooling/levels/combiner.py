@@ -72,7 +72,7 @@ for src in G['graph']:
 
     typescript += "\n"
 
-PATH = os.path.join("..", "src", "handcraftedMDP.ts")
+PATH = os.path.join("..", "..", "src", "handcraftedMDP.ts")
 with open(PATH, "w") as f:
     f.write(typescript)
 

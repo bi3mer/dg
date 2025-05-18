@@ -4,7 +4,7 @@
   "n": 3,
   "levels-are-horizontal": true,
   "start-population-size": 50,
-  "iterations": 100,
+  "iterations": 50,
   "elites-per-bin": 4,
   "start-strand-size": 10,
   "max-strand-size": 10,

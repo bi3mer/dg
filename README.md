@@ -25,12 +25,12 @@ bun run prod
 DungeonGrams can also work with [Ponos](https://github.com/bi3mer/ponos). To run, first start the server here:
 
 ```bash
-pypy3 server/server.py
+pypy3 ponos_tooling/server.py
 # or
-python3 server/server.py
+python3 ponos_tooling/server.py
 ```
 
-I recommend [pypy3](https://pypy.org/) because it is faster. You want to modify the [config.json](./server/config.json) before running to see if there are any changes you want to make. After that, start Ponos—check the readme or run `pypy3 ponos/ponos.py --help`—with whatever model name you want and the port *8000*.
+I recommend [pypy3](https://pypy.org/) because it is faster. You want to modify the [config.json](./server/config.json) before running to see if there are any changes you want to make. After that, start Ponos—check the readme or run `pypy3 ponos/ponos.py --help`—with whatever model name you want and the port *8080*.
 
 ## Other implementations
 
