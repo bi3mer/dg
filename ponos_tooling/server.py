@@ -1,4 +1,4 @@
-from computational_metrics import *
+from computational_metrics import computational_metrics
 from levels.dungeongrams.dungeongrams import percent_playable, FLAW_NO_FLAW
 
 from json import loads, dumps
@@ -25,38 +25,53 @@ def server(host='localhost', port=8080):
                             break
 
                         if cmd == b"config":
-                            with open('config.json', 'r') as f:
-                                conn.sendall(bytes(f.read(), 'utf-8'))
+                            with open(os.path.join("ponos_tooling", "config.json"), "r") as f:
+                                conn.sendall(bytes(f.read(), "utf-8"))
                         elif cmd == b'levels':
                             lvls = []
 
                             # levels made for previous work
-                            for file_name in os.listdir(os.path.join('levels', "dungeongrams", "train")):
-                                with open(os.path.join('levels', file_name), 'r') as f:
+                            path = os.path.join("ponos_tooling", "levels", "dungeongrams", "train")
+                            for file_name in os.listdir(path):
+                                with open(os.path.join(path, file_name), 'r') as f:
                                     lvls.append(f.readlines())
 
-                            for file_name in os.listdir(os.path.join('levels', "dungeongrams", "other_training_levels")):
-                                with open(os.path.join('levels', file_name), 'r') as f:
+                            path = os.path.join("ponos_tooling", "levels", "dungeongrams", "other_training_levels")
+                            for file_name in os.listdir(path):
+                                with open(os.path.join(path, file_name), 'r') as f:
                                     lvls.append(f.readlines())
 
                             # levels from handcrafted progression
-                            for file_name in os.listdir(os.path.join('levels', "segments")):
-                                with open(os.path.join('levels', file_name), 'r') as f:
-                                    lvls.append(f.readlines())
+                            path = os.path.join("ponos_tooling", "levels", "segments")
+                            for file_name in os.listdir(path):
+                                with open(os.path.join(path, file_name), 'r') as f:
+                                    lvl = []
+                                    for line in f:
+                                        l = line.strip()
+                                        if l == "&":
+                                            lvls.append(lvl)
+                                            lvl = []
+                                        else:
+                                            lvl.append(l)
+
+                                    lvls.append(lvl)
 
                             conn.sendall((dumps(lvls)+'EOF').encode())
                         elif cmd[:6] == b'assess':
                             lvl = loads(cmd[6:].decode('utf-8'))
+                            density, enemies, switches, food = computational_metrics(lvl)
                             return_data = {
-                                'completability': percent_playable(lvl, False, True, True, FLAW_NO_FLAW),
-                                'linearity': 0,
-                                'leniency': 0,
+                                "completability": percent_playable(lvl, False, True, False, FLAW_NO_FLAW),
+                                "density": density,
+                                "enemies": enemies,
+                                "switches": switches,
+                                "food": food
                             }
 
                             conn.sendall(dumps(return_data).encode('utf-8'))
                         elif cmd[:6] == b'reward':
                             lvl = loads(cmd[6:].decode('utf-8'))
-                            return_data = {'reward': percent_leniency(lvl) }
+                            return_data = {'reward': 1 }
 
                             conn.sendall(dumps(return_data).encode('utf-8'))
                         else:
