@@ -12,13 +12,25 @@ Rather than type `bun run build` whenever you want to test, just run:
 bun run watch
 ```
 
-Then you can refresh the webpage. Speaking of, you can't just run `open index.html` to test the game. This doesn't work because the website uses cookies to store basic info like if the player has played the tutorial. Therefore, you need to run a local server. I use `python3 -m http.server` and then it will print out the port. So usually you can put `127.0.0.1:8000` into your browser and test the game. 
+Then you can refresh the webpage. Speaking of, you can't just run `open index.html` to test the game. This doesn't work because the website uses cookies to store basic info like if the player has played the tutorial. Therefore, you need to run a local server. I use `python3 -m http.server` and then it will print out the port. So usually you can put `127.0.0.1:8000` into your browser and test the game.
 
 When done, you can build a production version:
 
 ```bash
 bun run prod
 ```
+
+## Ponos
+
+DungeonGrams can also work with [Ponos](https://github.com/bi3mer/ponos). To run, first start the server here:
+
+```bash
+pypy3 server/server.py
+# or
+python3 server/server.py
+```
+
+I recommend [pypy3](https://pypy.org/) because it is faster. You want to modify the [config.json](./server/config.json) before running to see if there are any changes you want to make. After that, start Ponos—check the readme or run `pypy3 ponos/ponos.py --help`—with whatever model name you want and the port *8000*.
 
 ## Other implementations
 
