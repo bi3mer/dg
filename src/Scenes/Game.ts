@@ -47,7 +47,7 @@ export class Game extends ECSScene {
     const lvl = this.director.get(2);
 
     const columns = lvl[0].length;
-    const offsetX = (engine.width / xMod - columns - 3) / 2;
+    const offsetX = Math.floor((engine.width / xMod - columns - 3) / 2);
     const modColumns = columns + 4;
     for (let y = 0; y < NUM_ROWS; ++y) {
       // add start values to both ends of the row
@@ -109,9 +109,6 @@ export class Game extends ECSScene {
         }
       }
     }
-
-    console.log(xMin, xMax);
-    console.log(yMin, yMax);
 
     for (let y = 3; y < engine.height / yMod - 1; ++y) {
       for (let x = 1; x < engine.width / xMod - 1; ++x) {

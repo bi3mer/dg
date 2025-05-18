@@ -4,11 +4,15 @@ import { OFFSET_COL, PLAYER_LOST } from "../constants";
 import { Global } from "../Global";
 
 export class PlayerMovement extends System {
-  componentsRequired = new Set<Function>([CommonComponents.Position2d, C.Render, C.Player]);
+  componentsRequired = new Set<Function>([
+    CommonComponents.Position2d,
+    C.Render,
+    C.Player,
+  ]);
 
   private updateTimeStep(): void {
-    const timeStep: number = this.ecs.getBB('time step');
-    this.ecs.setBB('time step', timeStep + 1);
+    const timeStep: number = this.ecs.getBB("time step");
+    this.ecs.setBB("time step", timeStep + 1);
   }
 
   update(engine: Engine, entities: Set<Entity>): void {
@@ -56,15 +60,18 @@ export class PlayerMovement extends System {
           playerMoved = true;
 
           if (player.stamina <= 0) {
-            Global.diedFrom = 'Stamina';
-            this.ecs.setBB('game over', PLAYER_LOST);
+            Global.diedFrom = "Stamina";
+            this.ecs.setBB("game over", PLAYER_LOST);
           }
           break;
         // nothing to do in the default case
       }
 
       if (playerMoved) {
-        player.furthestColumn = Math.max(player.furthestColumn, pos.getX() - OFFSET_COL);
+        player.furthestColumn = Math.max(
+          player.furthestColumn,
+          pos.getX() - OFFSET_COL,
+        );
         break;
       }
     }
