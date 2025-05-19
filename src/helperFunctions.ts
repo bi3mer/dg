@@ -7,6 +7,7 @@ import { MDPLevelDirector } from "./mdpLevelDirector";
 import { StaticLevelDirector } from "./staticLevelDirector";
 
 import { CustomNode } from "./customNode";
+import { Global } from "./Global";
 
 export function createLevelDirector(condition: string): ILevelDirector {
   if (condition === CONDITION_NOT_FOUND) {
@@ -27,6 +28,7 @@ export function createLevelDirector(condition: string): ILevelDirector {
 
   console.log(condition);
 
+  Global.condition = condition;
   if (condition === "auto-r") {
     console.log("Condition: auto-r");
     return new MDPLevelDirector(AUTO_MDP);

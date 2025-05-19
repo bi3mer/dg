@@ -26,8 +26,6 @@ export class Server {
   }
 
   public static submitAttempt() {
-    if (!IS_STUDY) return;
-
     const submission = {
       diedFrom: Global.diedFrom,
       "stamina-left": Global.staminaLeft,
@@ -37,16 +35,21 @@ export class Server {
       playerID: Global.playerID,
       levels: Global.levels,
       director: Global.director,
+      condition: Global.condition,
     };
 
-    fetch("/log", {
-      method: "POST",
-      body: JSON.stringify(submission),
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-    }).then((response) => {
-      console.log(response.status);
-      console.log(response);
-    });
+    console.log(submission);
+
+    if (IS_STUDY) {
+      fetch("/log", {
+        method: "POST",
+        body: JSON.stringify(submission),
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+      }).then((response) => {
+        console.log(response.status);
+        console.log(response);
+      });
+    }
   }
 }

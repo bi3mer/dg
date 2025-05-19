@@ -1,3 +1,4 @@
+import { CONDITION_NOT_FOUND } from "./constants";
 
 export class Global {
   public static playerID = "-1"; // indicates that data should not be used in analysis
@@ -11,4 +12,5 @@ export class Global {
   public static gamesPlayed = 0;
   public static director = "-1";
   public static version = "0.0.1";
+  public static condition: string = CONDITION_NOT_FOUND;
 }
