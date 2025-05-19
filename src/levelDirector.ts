@@ -157,7 +157,7 @@ export class LevelDirector {
       // add link if necessary. Note, we add it to state level so columnsPerLevel
       // is correct
       if (i > 0) {
-        const edge = AUTO_MDP.getEdge(this.keys[i - 1], this.keys[i]);
+        const edge = this.mdp.getEdge(this.keys[i - 1], this.keys[i]);
         if (edge instanceof CustomEdge) {
           const link = edge.link;
           const linkLength = link.length;
