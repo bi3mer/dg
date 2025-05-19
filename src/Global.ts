@@ -13,4 +13,5 @@ export class Global {
   public static director = "-1";
   public static version = "0.0.1";
   public static condition: string = CONDITION_NOT_FOUND;
+  public static offsetX: number = 0;
 }

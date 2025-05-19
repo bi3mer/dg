@@ -152,6 +152,7 @@ export class Game extends ECSScene {
     Global.diedFrom = "";
     Global.playerWon = false;
     Global.levels = this.director.keys;
+    Global.offsetX = offsetX;
 
     this.start = Date.now();
   }
