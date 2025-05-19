@@ -4,6 +4,7 @@ import { choice } from "./GDM-TS/src/rand";
 import { KEY_DEATH, KEY_START, NUM_ROWS, KEY_END } from "./constants";
 import { CustomNode } from "./customNode";
 import { HAND_MDP } from "./handcraftedMDP";
+import { AUTO_MDP } from "./autoMDP";
 import { CustomEdge } from "./customEdge";
 
 export class LevelDirector {
@@ -16,7 +17,8 @@ export class LevelDirector {
   private mdp: Graph;
 
   constructor() {
-    this.mdp = HAND_MDP;
+    // this.mdp = HAND_MDP;
+    this.mdp = AUTO_MDP;
   }
 
   public update(playerWon: boolean, playerColumn: number): void {
@@ -155,16 +157,13 @@ export class LevelDirector {
       // add link if necessary. Note, we add it to state level so columnsPerLevel
       // is correct
       if (i > 0) {
-        const edge = this.mdp.getEdge(this.keys[i - 1], this.keys[i]);
+        const edge = AUTO_MDP.getEdge(this.keys[i - 1], this.keys[i]);
         if (edge instanceof CustomEdge) {
           const link = edge.link;
           const linkLength = link.length;
           if (linkLength > 0) {
-            for (let jj = 0; jj < linkLength; ++jj) {
-              const column = link[jj];
-              for (r = 0; r < NUM_ROWS; ++r) {
-                stateLVL[r] = column[r] + stateLVL[r];
-              }
+            for (r = 0; r < NUM_ROWS; ++r) {
+              stateLVL[r] = link[r] + stateLVL[r];
             }
           }
         }
