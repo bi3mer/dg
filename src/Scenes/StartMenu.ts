@@ -30,9 +30,8 @@ export class StartMenu extends Scene {
       if (Cookie.get("completed tutorial")) {
         return this.gameIndex;
       }
-      console.warn("Disabled tutorial");
-      // return this.tutorialIndex;
-      return this.gameIndex;
+
+      return this.tutorialIndex;
     } else {
       engine.setFont(40);
       engine.drawText(360, 100, "DungeonGrams");
