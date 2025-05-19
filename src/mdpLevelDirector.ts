@@ -140,6 +140,12 @@ export class MDPLevelDirector implements ILevelDirector {
 
     // remove START id from keys since we won't use it after this
     this.keys.splice(0, 1);
+
+    for (let i = 0; i < this.keys.length; ++i) {
+      const K = this.keys[i];
+      const N = this.mdp.getNode(K);
+      console.log(`${K}: ${N.reward}, ${N.utility}`);
+    }
     console.log(this.keys);
 
     // Populate the level

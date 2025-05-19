@@ -3,8 +3,8 @@
   "end-reward": 1,
   "n": 3,
   "levels-are-horizontal": true,
-  "start-population-size": 100,
-  "iterations": 100,
+  "start-population-size": 1000,
+  "iterations": 30000,
   "elites-per-bin": 4,
   "start-strand-size": 10,
   "max-strand-size": 10,
@@ -20,19 +20,19 @@
       "name": "density",
       "min": 0,
       "max": 1,
-      "resolution": 20
-    },
-    {
-      "name": "switches",
-      "max": 30
+      "resolution": 5
     },
     {
       "name": "enemies",
       "max": 30
     },
     {
-      "name": "food",
-      "max": 30
+      "name": "path length",
+      "max": 100
+    },
+    {
+      "name": "stamina left",
+      "max": 100
     }
   ],
   "seed": 42

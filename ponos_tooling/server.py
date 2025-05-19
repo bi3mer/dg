@@ -1,7 +1,9 @@
-from levels.dungeongrams.dungeongrams import percent_playable, FLAW_NO_FLAW, solve_and_run
-from computational_metrics import *
+from levels.dungeongrams.dungeongrams import completion, FLAW_NO_FLAW, solve_and_run
+from computational_metrics import computational_metrics, proximity_to_enemies, jaccard_similarity
+from computational_metrics import percent_difference, density
 from grid_tools import columns_into_rows
 
+from typing import List, Dict, Any
 from json import loads, dumps, load
 import traceback
 import socket
@@ -93,6 +95,25 @@ def get_reward(lvl: List[str]) -> float:
     return (enjoyment + difficulty) / 2.0
 
 ###############################################################################
+# Handle the "assess" request type
+def assess(lvl: List[str]) -> Dict[str, Any]:
+    didwin, level, best_switches, best_cols, path, stamina_left = \
+        solve_and_run(lvl, False, True, False, FLAW_NO_FLAW, False, False)
+
+    percent_complete = 1.0 if didwin else completion(level, best_switches, best_cols)
+    print(f"Percent playable: {percent_complete}\n")
+
+    density, enemies  = computational_metrics(lvl)
+    print(round(len(path)/ 10))
+    return {
+        "completability": percent_complete,
+        "density": density,
+        "enemies": enemies,
+        "path length": round(len(path) / 10),
+        "stamina left": round((40 - stamina_left) / 2)
+    }
+
+###############################################################################
 # This function starts a socket server that works with Ponos
 def server(host='localhost', port=8080):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -119,24 +140,13 @@ def server(host='localhost', port=8080):
                         elif cmd[:6] == b'assess':
                             lvl = columns_into_rows(loads(cmd[6:].decode('utf-8')))
                             print("\n".join(lvl))
-                            pp = percent_playable(lvl, False, True, False, FLAW_NO_FLAW)
-                            print(f"Percent playable: {pp}\n")
 
-                            density, enemies, switches, food = computational_metrics(lvl)
-                            return_data = {
-                                "completability": pp,
-                                "density": density,
-                                "enemies": enemies,
-                                "switches": switches,
-                                "food": food
-                            }
-
-                            conn.sendall(dumps(return_data).encode('utf-8'))
+                            conn.sendall(dumps(assess(lvl)).encode('utf-8'))
                         elif cmd[:6] == b'reward':
                             lvl = columns_into_rows(loads(cmd[6:].decode('utf-8')))
 
                             return_data = {
-                                'reward': get_reward(lvl)
+                                'reward': get_reward(lvl) / 7.0
                             }
 
                             conn.sendall(dumps(return_data).encode('utf-8'))

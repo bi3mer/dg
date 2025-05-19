@@ -3,7 +3,7 @@ import { NUM_ROWS } from "../src/constants";
 import { CustomEdge } from "../src/customEdge";
 import { CustomNode } from "../src/customNode";
 
-const keys = ["2_0_1_0-0", "3_0_1_0-0"];
+const keys = ["0_4_2_6-0", "0_4_2_8-0"];
 
 let r: number;
 const lvl: string[] = Array(NUM_ROWS).fill("");
