@@ -10,10 +10,11 @@ import {
 } from "../WorldEngine";
 import { Collider } from "../Components/Collider";
 import { MAX_STAMINA, NUM_ROWS } from "../constants";
-import { LevelDirector } from "../levelDirector";
 import { Player } from "../Components/Player";
-import { DB } from "../Database";
 import { Global } from "../Global";
+import { ILevelDirector } from "../ILevelDirector";
+import { createLevelDirector } from "../helperFunctions";
+import { Server } from "../server";
 
 export class Game extends ECSScene {
   public playerWonIndex = 0;
@@ -21,13 +22,13 @@ export class Game extends ECSScene {
   public selfIndex = 0;
   public mainMenuIndex = 0;
 
-  private director: LevelDirector;
+  private director: ILevelDirector;
   private start: number = 0;
 
-  constructor() {
+  constructor(condition: string) {
     super();
 
-    this.director = new LevelDirector();
+    this.director = createLevelDirector(condition);
     this.setBB("game over", 0);
     this.setBB("restart", false);
   }
@@ -173,7 +174,7 @@ export class Game extends ECSScene {
       const end = Date.now();
       const elapsed = (end - this.start) / 1000;
       Global.time = elapsed;
-      DB.submitAttempt();
+      Server.submitAttempt();
 
       engine.setBB("last level", this.director.playerIsOnLastLevel);
 

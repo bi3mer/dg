@@ -3,22 +3,21 @@ import { Edge } from "./GDM-TS/src/Graph/edge";
 import { choice } from "./GDM-TS/src/rand";
 import { KEY_DEATH, KEY_START, NUM_ROWS, KEY_END } from "./constants";
 import { CustomNode } from "./customNode";
-import { HAND_MDP } from "./handcraftedMDP";
-import { AUTO_MDP } from "./autoMDP";
 import { CustomEdge } from "./customEdge";
+import { ILevelDirector } from "./ILevelDirector";
 
-export class LevelDirector {
+export class MDPLevelDirector implements ILevelDirector {
   public playerIsOnLastLevel: boolean = false;
   public keys: string[] = [];
 
   private columnsPerLevel: number[] = [];
   private playerWonLastRound: boolean = false;
   private lossesInARow: number = 0;
-  private mdp: Graph;
 
-  constructor() {
-    // this.mdp = HAND_MDP;
-    this.mdp = AUTO_MDP;
+  constructor(private mdp: Graph) {}
+
+  playerOnLastLevel(): boolean {
+    return this.playerIsOnLastLevel;
   }
 
   public update(playerWon: boolean, playerColumn: number): void {

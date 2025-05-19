@@ -24,3 +24,6 @@ export const KEY_END = "end";
 // colors
 export const ENEMY_TURN_NEXT_COLOR = "#FF000022";
 export const ENEMY_PAUSE_COLOR = "#FF440011";
+
+// Server keys
+export const CONDITION_NOT_FOUND = "error-condition";
