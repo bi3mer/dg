@@ -180,11 +180,14 @@ export class Game extends ECSScene {
       engine.setBB("last level", this.director.playerIsOnLastLevel);
 
       return gameOver == 1 ? this.playerWonIndex : this.playerLostIndex;
-    } else if (engine.keyDown.has(Key.R)) {
-      return this.selfIndex;
-    } else if (engine.keyDown.has(Key.Q)) {
-      return this.mainMenuIndex;
     }
+
+    /// We don't want quit or restart behavior right now
+    // else if (engine.keyDown.has(Key.R)) {
+    //   return this.selfIndex;
+    // } else if (engine.keyDown.has(Key.Q)) {
+    //   return this.mainMenuIndex;
+    // }
 
     return -1;
   }

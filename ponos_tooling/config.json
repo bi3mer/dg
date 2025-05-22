@@ -4,10 +4,10 @@
   "n": 3,
   "levels-are-horizontal": true,
   "start-population-size": 1000,
-  "iterations": 30000,
-  "elites-per-bin": 4,
-  "start-strand-size": 10,
-  "max-strand-size": 10,
+  "iterations": 50000,
+  "elites-per-bin": 8,
+  "start-strand-size": 12,
+  "max-strand-size": 12,
   "n-gram-operators": true,
   "mutation-rate": 0.05,
   "structure-chars": ["[", "]", "<", ">"],
@@ -20,19 +20,20 @@
       "name": "density",
       "min": 0,
       "max": 1,
-      "resolution": 5
+      "resolution": 20
     },
     {
       "name": "enemies",
-      "max": 30
+      "max": 20
     },
     {
-      "name": "path length",
-      "max": 100
+      "name": "switches",
+      "max": 10
     },
+
     {
-      "name": "stamina left",
-      "max": 100
+      "name": "food",
+      "max": 10
     }
   ],
   "seed": 42

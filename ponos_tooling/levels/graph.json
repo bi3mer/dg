@@ -10,7 +10,7 @@
       ],
       "depth": 0
     },
-    "idk": {
+    "h": {
       "x": 2188,
       "y": 608,
       "reward": -5.0,
@@ -67,8 +67,8 @@
       "y": 565,
       "reward": -23.0,
       "neighbors": [
-        "ld-f",
-        "ld-s"
+        "ld-s",
+        "ld-f"
       ],
       "depth": 5
     },
@@ -114,8 +114,8 @@
       "y": 520,
       "reward": -19.0,
       "neighbors": [
-        "ps-e3",
-        "ps-e1-d"
+        "ps-e1-d",
+        "ps-e3"
       ],
       "depth": 9
     },
@@ -133,8 +133,8 @@
       "y": 603,
       "reward": -19.0,
       "neighbors": [
-        "e3-s-d",
-        "ps-e1-d"
+        "ps-e1-d",
+        "e3-s-d"
       ],
       "depth": 9
     },
@@ -143,8 +143,8 @@
       "y": 639,
       "reward": -18.4,
       "neighbors": [
-        "e4-s-d",
-        "ps-e2-d"
+        "ps-e2-d",
+        "e4-s-d"
       ],
       "depth": 10
     },
@@ -218,8 +218,8 @@
       "y": 560,
       "reward": -5.0,
       "neighbors": [
-        "idk",
-        "hardest"
+        "hardest",
+        "h"
       ],
       "depth": 24
     },
@@ -246,8 +246,8 @@
       "y": 486,
       "reward": -15.0,
       "neighbors": [
-        "pa3-e",
-        "pa2-e"
+        "pa2-e",
+        "pa3-e"
       ],
       "depth": 13
     },
@@ -256,8 +256,8 @@
       "y": 565,
       "reward": -15.0,
       "neighbors": [
-        "pa1-e",
-        "pa3-e"
+        "pa3-e",
+        "pa1-e"
       ],
       "depth": 13
     },
@@ -266,8 +266,8 @@
       "y": 643,
       "reward": -15.0,
       "neighbors": [
-        "pa1-e",
-        "pa2-e"
+        "pa2-e",
+        "pa1-e"
       ],
       "depth": 13
     },
@@ -285,8 +285,8 @@
       "y": 562,
       "reward": -14.4,
       "neighbors": [
-        "pa3-e2-s",
-        "pa2-e2-s"
+        "pa2-e2-s",
+        "pa3-e2-s"
       ],
       "depth": 14
     },
@@ -315,9 +315,9 @@
       "y": 561,
       "reward": -13.0,
       "neighbors": [
+        "m2",
         "m1",
-        "m3",
-        "m2"
+        "m3"
       ],
       "depth": 15
     },
@@ -326,8 +326,8 @@
       "y": 645,
       "reward": -13.0,
       "neighbors": [
-        "m3",
-        "m2"
+        "m2",
+        "m3"
       ],
       "depth": 15
     },
@@ -336,9 +336,9 @@
       "y": 489,
       "reward": -13.0,
       "neighbors": [
+        "m2",
         "m1",
-        "m3",
-        "m2"
+        "m3"
       ],
       "depth": 15
     },
@@ -375,8 +375,8 @@
       "y": 563,
       "reward": -12.0,
       "neighbors": [
-        "m1-m",
-        "m3-m"
+        "m3-m",
+        "m1-m"
       ],
       "depth": 16
     },

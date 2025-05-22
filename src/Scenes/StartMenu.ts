@@ -45,8 +45,8 @@ export class StartMenu extends Scene {
 
       engine.drawText(250, 350, "WASD or Arrows to move", "green");
       engine.drawText(250, 375, "Space to do nothing for a turn", "green");
-      engine.drawText(250, 400, "R to restart", "green");
-      engine.drawText(250, 425, "Q to quit", "green");
+      // engine.drawText(250, 400, "R to restart", "green");
+      // engine.drawText(250, 425, "Q to quit", "green");
 
       return -1;
     }

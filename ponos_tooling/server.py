@@ -103,14 +103,14 @@ def assess(lvl: List[str]) -> Dict[str, Any]:
     percent_complete = 1.0 if didwin else completion(level, best_switches, best_cols)
     print(f"Percent playable: {percent_complete}\n")
 
-    density, enemies  = computational_metrics(lvl)
-    print(round(len(path)/ 10))
+    density, enemies, switches, food = computational_metrics(lvl)
     return {
         "completability": percent_complete,
         "density": density,
         "enemies": enemies,
-        "path length": round(len(path) / 10),
-        "stamina left": round((40 - stamina_left) / 2)
+        "switches": switches,
+        "food": food,
+        # "path length": round(len(path) / 10),
     }
 
 ###############################################################################
@@ -140,7 +140,6 @@ def server(host='localhost', port=8080):
                         elif cmd[:6] == b'assess':
                             lvl = columns_into_rows(loads(cmd[6:].decode('utf-8')))
                             print("\n".join(lvl))
-
                             conn.sendall(dumps(assess(lvl)).encode('utf-8'))
                         elif cmd[:6] == b'reward':
                             lvl = columns_into_rows(loads(cmd[6:].decode('utf-8')))

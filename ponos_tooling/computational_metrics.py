@@ -1,21 +1,25 @@
 from typing import List, Tuple
 
-def computational_metrics(lvl: List[str]) -> Tuple[float, float]:
+def computational_metrics(lvl: List[str]) -> Tuple[float, float, float, float]:
     density = 0
     enemies = 0
-    # switches = 0
+    switches = 0
+    food = 0
 
     for row in lvl:
         for c in row:
             if c == "X" or c == "/" or c == "\\" or c == "^":
                 density += 1
-            # elif c == "*":
-            #     switches += 1
             elif c == "#":
-                enemies += 1
+                enemies += 8
+            elif c == '*':
+                switches += 4
+            elif c == '&':
+                food += 1
+
 
     area = len(lvl) * len(lvl[0])
-    return density / area, enemies
+    return min(1, density / (0.75*area)), enemies, switches, min(10 - food, 0)
 
 ENEMY_RANGE = 3
 ENEMY_RADIUS =[
@@ -55,6 +59,9 @@ def jaccard_similarity(a: List[Tuple[int, int]], b: List[Tuple[int, int]]) -> fl
     return 1.0 - intersection_cardinality/union_cardinality
 
 def percent_difference(a: float, b: float) -> float:
+    if a == 0 and b == 0:
+        return 0
+
     return abs(a-b) / ((a+b)/2)
 
 SOLIDS = ['X', '^', '/', '\\']
