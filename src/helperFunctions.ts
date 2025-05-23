@@ -26,8 +26,6 @@ export function createLevelDirector(condition: string): ILevelDirector {
     }
   }
 
-  console.log(condition);
-
   Global.condition = condition;
   if (condition === "auto-r") {
     console.log("Condition: auto-r");
@@ -52,6 +50,5 @@ export function createLevelDirector(condition: string): ILevelDirector {
   }
 
   // no valid condition found, going with a random one
-  console.log("y", condition);
   return createLevelDirector(choice(["auto-r", "auto-d", "static", "hand"]));
 }
