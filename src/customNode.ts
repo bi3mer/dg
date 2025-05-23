@@ -4,7 +4,7 @@ export class CustomNode extends Node {
   public visitedCount: number;
   public sumPercentCompleted: number;
 
-  private designerReward: number;
+  public designerReward: number;
 
   constructor(
     name: string,
