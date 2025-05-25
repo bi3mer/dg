@@ -1,4 +1,5 @@
 import { HAND_MDP } from "../src/handcraftedMDP";
+import { AUTO_MDP } from "../src/autoMDP";
 import { Graph } from "../src/GDM-TS";
 
 function bfs(mdp: Graph, start: string, end: string) {
@@ -35,3 +36,6 @@ console.log(`Number of nodes: ${Object.keys(HAND_MDP.nodes).length}`);
 console.log(`Number of edges: ${Object.keys(HAND_MDP.edges).length}`);
 console.log("Path from start to min:", bfs(HAND_MDP, "start", "end-0").length);
 
+console.log(`Number of nodes: ${Object.keys(AUTO_MDP.nodes).length}`);
+console.log(`Number of edges: ${Object.keys(AUTO_MDP.edges).length}`);
+console.log("Path from start to min:", bfs(AUTO_MDP, "start", "end").length);

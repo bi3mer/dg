@@ -17,7 +17,6 @@ def computational_metrics(lvl: List[str]) -> Tuple[float, float, float, float]:
             elif c == '&':
                 food += 1
 
-
     area = len(lvl) * len(lvl[0])
     return min(1, density / (0.75*area)), enemies, switches, min(10 - food, 0)
 

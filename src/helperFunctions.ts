@@ -36,7 +36,7 @@ export function createLevelDirector(condition: string): ILevelDirector {
     const maxDepth = (AUTO_MDP.nodes["end"] as CustomNode).depth - 1;
     for (const nodeName in AUTO_MDP.nodes) {
       const N = AUTO_MDP.nodes[nodeName] as CustomNode;
-      N.designerReward = -(maxDepth - N.depth) / maxDepth;
+      N.designerReward = N.depth / maxDepth - 1;
       N.updateReward();
     }
 
