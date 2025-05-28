@@ -29,11 +29,6 @@
     {
       "name": "switches",
       "max": 10
-    },
-
-    {
-      "name": "food",
-      "max": 10
     }
   ],
   "seed": 42

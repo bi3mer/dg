@@ -103,13 +103,12 @@ def assess(lvl: List[str]) -> Dict[str, Any]:
     percent_complete = 1.0 if didwin else completion(level, best_switches, best_cols)
     print(f"Percent playable: {percent_complete}\n")
 
-    density, enemies, switches, food = computational_metrics(lvl)
+    density, enemies, switches = computational_metrics(lvl)
     return {
         "completability": percent_complete,
         "density": density,
         "enemies": enemies,
         "switches": switches,
-        "food": food,
         # "path length": round(len(path) / 10),
     }
 

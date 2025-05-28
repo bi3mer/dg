@@ -1,10 +1,10 @@
 from typing import List, Tuple
 
-def computational_metrics(lvl: List[str]) -> Tuple[float, float, float, float]:
+def computational_metrics(lvl: List[str]) -> Tuple[float, float, float]:
     density = 0
     enemies = 0
     switches = 0
-    food = 0
+    # food = 0
 
     for row in lvl:
         for c in row:
@@ -14,11 +14,12 @@ def computational_metrics(lvl: List[str]) -> Tuple[float, float, float, float]:
                 enemies += 8
             elif c == '*':
                 switches += 4
-            elif c == '&':
-                food += 1
+            # elif c == '&':
+            #     food += 1
 
     area = len(lvl) * len(lvl[0])
-    return min(1, density / (0.75*area)), enemies, switches, min(10 - food, 0)
+    return min(1, density / (0.75*area)), enemies, switches
+    # , max(10 - food, 0)
 
 ENEMY_RANGE = 3
 ENEMY_RADIUS =[
