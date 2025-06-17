@@ -20,7 +20,7 @@ typescript += "HAND_MDP.addNode(new CustomNode(KEY_DEATH, -1, 0, true, [], [], -
 # Get max reward
 max_r = -1
 for src in G['graph']:
-    max_r = max(max_r, G['graph'][src]["reward"])
+    max_r = max(max_r, abs(G['graph'][src]["reward"]))
 
 for src in G['graph']:
     if src == "start":
@@ -43,7 +43,7 @@ for src in G['graph']:
 
     N = G['graph'][src]
     is_terminal = "true" if src == 'end' else "false"
-    r = -(max_r-N["reward"])/max_r
+    r = N["reward"]
     d = N["depth"]
 
     for src_index, l in enumerate(levels):

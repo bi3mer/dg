@@ -1,7 +1,7 @@
 import { choice } from "./GDM-TS/src/rand";
 import { ILevelDirector } from "./ILevelDirector";
 import { AUTO_MDP } from "./autoMDP";
-import { CONDITION_NOT_FOUND } from "./constants";
+import { CONDITION_NOT_FOUND, IS_STUDY } from "./constants";
 import { HAND_MDP } from "./handcraftedMDP";
 import { MDPLevelDirector } from "./mdpLevelDirector";
 import { StaticLevelDirector } from "./staticLevelDirector";
@@ -21,8 +21,10 @@ export function createLevelDirector(condition: string): ILevelDirector {
       } else {
         condition = choice(CONDITIONS);
       }
-    } else {
+    } else if (IS_STUDY) {
       condition = choice(CONDITIONS);
+    } else {
+      condition = "hand";
     }
   }
 

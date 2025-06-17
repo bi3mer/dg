@@ -1,4 +1,4 @@
-export const IS_STUDY = true;
+export const IS_STUDY = false;
 
 export const NUM_ROWS = 11;
 export const MAX_STAMINA = 40;
